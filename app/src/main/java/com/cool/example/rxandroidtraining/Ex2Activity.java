@@ -37,7 +37,7 @@ public class Ex2Activity extends AppCompatActivity {
                 myObservable.subscribe(myObserver);
             }
         });
-
+// test changes
     }
 
     private void createObsvls() {
