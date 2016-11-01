@@ -32,6 +32,8 @@
         </activity>
         <activity android:name=".Ex2Activity">
         </activity>
+        <activity android:name=".Ex3Activity">
+        </activity>
     </application>
 
 </manifest>

@@ -11,6 +11,8 @@ import com.cool.example.rxandroidtraining.databinding.ActivityExample1Binding;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class Ex2Activity extends AppCompatActivity {
 
@@ -34,7 +36,12 @@ public class Ex2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                myObservable.subscribe(myObserver);
+                b.button.setEnabled(false);
+
+                myObservable
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(myObserver);
             }
         });
 
@@ -43,8 +50,10 @@ public class Ex2Activity extends AppCompatActivity {
     private void createObsvls() {
 
         myObservable = Observable.create(new Observable.OnSubscribe<String>() {
+
             @Override
             public void call(Subscriber<? super String> subscriber) {
+
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
@@ -69,6 +78,7 @@ public class Ex2Activity extends AppCompatActivity {
             @Override
             public void onCompleted() {
 
+                b.button.setEnabled(true);
             }
 
             @Override
