@@ -98,6 +98,11 @@ public class MainActivity extends AppCompatActivity
 
                 startActivity(new Intent(this, Ex3Activity.class));
                 break;
+
+            case R.id.nav_ex4:
+
+                startActivity(new Intent(this, Ex4Activity.class));
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
